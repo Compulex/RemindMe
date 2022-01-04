@@ -2,7 +2,9 @@
 
 
 MainPage
+
 --Click the ADD Button to add a reminder
+
 --Swipe left to delete reminder
 --Swipe right to update reminder(recording - update time only)
 
