@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">RemindMe</string>
+    <string name="rec_btn">Record</string>
+    <string name="or">-OR-</string>
+    <string name="my_rems">My Reminders</string>
+    <string name="my_recs"><u>Recordings</u></string>
+    <string name="my_texts"><u>Texts</u></string>
+    <string name="automated"><u>Automated</u></string>
+    <string name="placeholder">My Reminders</string>
+
+    <string-array name="time">
+        <item>seconds</item>
+        <item>minutes</item>
+        <item>hours</item>
+        <item>days</item>
+        <item>weeks</item>
+        <item>months</item>
+    </string-array>
+
+    <string name="repeat_toggle_on">Repeat On</string>
+    <string name="repeat_toggle_off">Repeat Off</string>
+
+    <string name="amount">1</string>
+    <string name="set_btn">SET</string>
+    <string name="img_btn">Audio Play/Pause</string>
+    <string name="img_del_btn">Delete</string>
+    <string name="selected_item">Selected item: </string>
+
+    <string-array name="sort">
+        <item>A-Z</item>
+        <item>Deadline</item>
+    </string-array>
+
+    <string name="empty_rec">No recordings here</string>
+    <string name="add_rem">ADD</string>
+    <string name="reset_btn">RESET</string>
+    <string name="hint_desc">Enter description of reminder</string>
+    <string name="hint_title">Title of recording</string>
+    <string name="hint_amt">number</string>
+
+    <string name="repeat_btn">Repeat</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="update_btn">Update</string>
+</resources>
