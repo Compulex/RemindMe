@@ -1,10 +1,15 @@
 package com.example.remindme
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +17,6 @@ import com.example.remindme.database.ReminderDatabase
 import com.example.remindme.viewmodels.RecordingsListViewModel
 import com.example.remindme.viewmodels.TextListViewModel
 import java.io.File
-
 
 class MainActivity : AppCompatActivity() {
     //recordings
@@ -35,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Spinner
-        //TODO: order by from sql
-        /*val sort = findViewById<Spinner>(R.id.sort_by)
+        val sort = findViewById<Spinner>(R.id.sort_by)
         //add list to spinner
         ArrayAdapter.createFromResource(
             this,
@@ -49,14 +52,33 @@ class MainActivity : AppCompatActivity() {
         }
         //order all recordings
         sort.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                //TODO: order list of recordings by name(A-Z) or deadline
+                val item = parent?.getItemAtPosition(pos)
+
+                if(item == "A-Z"){
+                    //sort recording adapter
+                    recAdapter.sortAZ()
+
+                    //sort texts adapter
+                    txtAdapter.sortAZ()
+                }
+                else if(item == "Date Created"){
+                    //sort recording adapter
+                    recAdapter.sortDate()
+
+                    //sort texts adapter
+                    txtAdapter.sortDate()
+                }
+
+                listRecView.adapter = recAdapter
+                listTxtView.adapter = txtAdapter
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                TODO("Not yet implemented")
+                println("Nothing here")
             }
-        }*/
+        }
 
         //initialize view models
         recAdapter = RecordingsAdapter()
@@ -214,7 +236,18 @@ class MainActivity : AppCompatActivity() {
             alarmNotification.createNotificationChannel()
             alarmNotification.scheduleNotification()
         }//intent from AddReminder
-
     }//onCreate
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }//onCreateOptionsMenu
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_help -> HelpDialog().show(supportFragmentManager, "help")
+        }
+        return super.onOptionsItemSelected(item)
+    }//onOptionsItemSelected
 
 }//end activity

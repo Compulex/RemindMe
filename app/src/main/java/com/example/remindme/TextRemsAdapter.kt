@@ -1,17 +1,18 @@
 package com.example.remindme
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.remindme.entities.TextReminder
-import java.util.*
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class TextRemsAdapter : RecyclerView.Adapter<TextRemsAdapter.TextViewHolder>(){
     private var textList = mutableListOf<TextReminder>()
@@ -64,4 +65,15 @@ class TextRemsAdapter : RecyclerView.Adapter<TextRemsAdapter.TextViewHolder>(){
         return textList[position]
     }//getReminderAtPosition
 
+    fun sortAZ(){
+        textList.sortWith { x, y -> x.description.compareTo(y.description) }
+    }//sortAZ
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun sortDate(){
+        textList.sortWith(compareBy (
+            { LocalDate.parse(it.date, DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)) },
+            { LocalTime.parse(it.time, DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)) }
+        ))
+    }//sortDate
 }//end class - adapter

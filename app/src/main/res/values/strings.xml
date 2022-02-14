@@ -7,6 +7,7 @@
     <string name="my_texts"><u>Texts</u></string>
     <string name="automated"><u>Automated</u></string>
     <string name="placeholder">My Reminders</string>
+    <string name="help">Help</string>
 
     <string-array name="time">
         <item>seconds</item>
@@ -28,7 +29,7 @@
 
     <string-array name="sort">
         <item>A-Z</item>
-        <item>Deadline</item>
+        <item>Date Created</item>
     </string-array>
 
     <string name="empty_rec">No recordings here</string>

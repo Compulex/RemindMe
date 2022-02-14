@@ -1,7 +1,6 @@
 package com.example.remindme
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.media.MediaPlayer
 import android.os.Build
 import android.util.Log
@@ -18,7 +17,6 @@ import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.*
 
 class RecordingsAdapter : RecyclerView.Adapter<RecordingsAdapter.RecordingViewHolder>() {
     private var recList = mutableListOf<AudioReminder>()
@@ -112,4 +110,16 @@ class RecordingsAdapter : RecyclerView.Adapter<RecordingsAdapter.RecordingViewHo
     fun getReminderAtPosition(position: Int): AudioReminder {
         return recList[position]
     }//getReminderAtPosition
+
+    fun sortAZ(){
+        recList.sortBy { it.title }
+    }//sortAZ
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun sortDate(){
+        recList.sortWith(compareBy (
+            { LocalDate.parse(it.date, DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)) },
+            { LocalTime.parse(it.time, DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)) }
+        ))
+    }//sortDate
 }//end class - adapter
