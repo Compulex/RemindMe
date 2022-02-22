@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RemindMe">
-        <activity android:name=".ViewReminder"></activity>
+        <activity android:name=".ViewReminder" />
         <activity android:name=".AddReminder" />
         <activity android:name=".MainActivity">
             <intent-filter>
