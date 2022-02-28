@@ -8,6 +8,10 @@
     <string name="automated"><u>Automated</u></string>
     <string name="placeholder">My Reminders</string>
     <string name="help">Help</string>
+    <string name="help_msg">Swipe left to delete.\nSwipe right to update</string>
+    <string name="update">Update</string>
+    <string name="link"><a href="https://appsbyanl.herokuapp.com/">Check for Update</a></string>
+    <string name="dismiss_btn">Dismiss</string>
 
     <string-array name="time">
         <item>seconds</item>

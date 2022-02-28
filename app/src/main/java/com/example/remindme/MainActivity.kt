@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.remindme.database.ReminderDatabase
+import com.example.remindme.dialogs.HelpDialog
+import com.example.remindme.dialogs.UpdateDialog
 import com.example.remindme.viewmodels.RecordingsListViewModel
 import com.example.remindme.viewmodels.TextListViewModel
 import java.io.File
@@ -246,6 +248,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.menu_help -> HelpDialog().show(supportFragmentManager, "help")
+            R.id.menu_update -> UpdateDialog().show(supportFragmentManager, "update")
         }
         return super.onOptionsItemSelected(item)
     }//onOptionsItemSelected
