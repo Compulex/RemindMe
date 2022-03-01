@@ -7,10 +7,18 @@
     <string name="my_texts"><u>Texts</u></string>
     <string name="automated"><u>Automated</u></string>
     <string name="placeholder">My Reminders</string>
+
     <string name="help">Help</string>
-    <string name="help_msg">Swipe left to delete.\nSwipe right to update</string>
+    <string name="howto">
+        1. Tap the ADD button\n
+        2. To record tap the microphone button and speak, other wise type in the reminder\n
+        3. Set the time for when you want to be reminded\n
+        4. Tap the SET button when done\n
+        For each reminder: swipe left to delete; swipe right to update</string>
     <string name="update">Update</string>
-    <string name="link"><a href="https://appsbyanl.herokuapp.com/">Check for Update</a></string>
+    <string name="update_msg">
+        Version Date: February 28, 2022\n
+        <a href="https://appsbyanl.herokuapp.com/">Check for Update</a></string>
     <string name="dismiss_btn">Dismiss</string>
 
     <string-array name="time">

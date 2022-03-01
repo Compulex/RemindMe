@@ -14,9 +14,8 @@ import com.example.remindme.R
 
 class UpdateDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val spanStr = SpannableString(this.getText(R.string.link))
         val linkTV = TextView(this.context)
-        linkTV.text = spanStr
+        linkTV.text = this.getText(R.string.update_msg)
 
         //link to site to download updated version
         linkTV.setOnClickListener {
